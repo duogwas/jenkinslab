@@ -15,13 +15,13 @@ pipeline{
                 sh "mvn clean package"
             }
         }
-    }
 
-    stage('Docker Build'){
+        stage('Docker Build'){
             steps{
                 sh "docker build -t duogwas/multibranchapp:${DOCKER_TAG}}"
             }
         }
+    }
 }
 
 def getVersion(){
