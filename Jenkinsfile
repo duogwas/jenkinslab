@@ -3,6 +3,7 @@ pipeline{
     stages{
         stage('SCM'){
             steps{
+              echo 'Hello world dev'
             }
         }
     }
