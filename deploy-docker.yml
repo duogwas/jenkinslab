@@ -11,3 +11,9 @@
       yum:
         name: docker-ce
         state: present
+    
+    - name: Start docker
+      service:
+        name: docker
+        state: started
+        enabled: yes
