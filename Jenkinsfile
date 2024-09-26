@@ -21,6 +21,15 @@ pipeline{
                 sh "docker build . -t duogwas/multibranchapp:${DOCKER_TAG}"
             }
         }
+
+        stage('DockerHub Push'){
+          steps{
+                withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerHubPwd')]) {
+                    sh "docker login -u duogwas -p ${dockerHubPwd}"
+                }
+                sh "docker push duogwas/multibranchapp:${DOCKER_TAG}"
+              }
+        }
     }
 }
 
