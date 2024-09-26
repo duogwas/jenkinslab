@@ -18,7 +18,7 @@ pipeline{
 
         stage('Docker Build'){
             steps{
-                sh "docker build . -t duogwas/multibranchapp:${DOCKER_TAG}}"
+                sh "docker build . -t duogwas/multibranchapp:${DOCKER_TAG}"
             }
         }
     }
