@@ -30,6 +30,12 @@ pipeline{
                 sh "docker push duogwas/multibranchapp:${DOCKER_TAG}"
               }
         }
+
+          stage('Docker Deploy'){
+            steps{
+              ansiblePlaybook credentialsId: 'dev-server-248', disableHostKeyChecking: true, extras: "-e DOCKER_TAG=${DOCKER_TAG}", installation: 'ansible', inventory: 'dev.inv', playbook: 'deploy-docker.yml'
+            }
+        }
     }
 }
 
